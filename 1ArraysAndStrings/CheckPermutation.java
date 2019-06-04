@@ -1,10 +1,8 @@
 /**
 * Give two strings, write a method to decide if one is a permutation of the other
 *
-* @version 1.0
+* @version 2.0
 */
-
-//imports
 
 public class CheckPermutation {
 
