@@ -9,18 +9,56 @@
 public class CheckPermutation {
 
 	/**
-	* //Time Complexity
+	* O(n)
 	*
-	* Summary:  
+	* Summary:  Iterate through first string and increment an integer array (size 128 for assumption of 128 non-extended ASCII chars). Loop through the second
+	*			string and decrement the integer array. Then check if integer array has non-zero values. If yes they are not permutations. if not then they are permutations.
 	*			
-	* @param 
+	* @param string1 first string to check against
+	* @param string2 second string to check against
 	* @return 
 	*/
-	public static void checkPermutation() {
-		//solution logic
+	public static void checkPermutation(String string1, String string2) {
+		//check if strings are the same length
+		if (string1.length() != string2.length()) {
+			System.out.println("CAN'T BE! DIFFERENT LENGTHS!");
+			return;
+		}
+		
+		int[] characters = new int[128];
+		for (char c : string1.toCharArray()) { //loop through string1 and add char count
+			characters[(int)c]++;
+		}
+		
+		for (char d : string2.toCharArray()) { //loop through string2 and subtract char count
+			characters[(int)d]--;
+		}
+		
+		for (int i : characters) { //check for an nonzero values
+			if (i!=0) {
+				System.out.println("NOT A PERMUTATION!");
+				return;
+			}
+		}
+		System.out.println("Permutations! ;-)");
 	}
 
 	public static void main(String[] args) {
-		//function call
+		//String string1 = "";
+		//String string2 = "";
+		
+		//String string1 = " ";
+		//String string2 = " ";
+		
+		//String string1 = "  ";
+		//String string2 = " ";
+		
+		//String string1 = "racecar";
+		//String string2 = "acecarr";
+		
+		String string1 = "blewdablew";
+		String string2 = "blewdabled";
+		
+		checkPermutation(string1, string2);
 	}
 }
