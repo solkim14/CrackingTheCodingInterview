@@ -30,12 +30,9 @@ public class CheckPermutation {
 			characters[(int)c]++;
 		}
 		
-		for (char d : string2.toCharArray()) { //loop through string2 and subtract char count
-			characters[(int)d]--;
-		}
-		
-		for (int i : characters) { //check for an nonzero values
-			if (i!=0) {
+		for (int i=0; i<string2.length(); i++) { //iterate through string2, subtract char count, and check for non-zero value
+			characters[string2.charAt(i)]--;
+			if (characters[string2.charAt(i)]<0) {
 				System.out.println("NOT A PERMUTATION!");
 				return;
 			}
@@ -53,11 +50,11 @@ public class CheckPermutation {
 		//String string1 = "  ";
 		//String string2 = " ";
 		
-		//String string1 = "racecar";
-		//String string2 = "acecarr";
+		String string1 = "racecar";
+		String string2 = "acecarr";
 		
-		String string1 = "blewdablew";
-		String string2 = "blewdabled";
+		//String string1 = "blewdablew";
+		//String string2 = "blewdabled";
 		
 		checkPermutation(string1, string2);
 	}
