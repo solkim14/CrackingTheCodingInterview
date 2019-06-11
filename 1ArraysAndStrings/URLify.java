@@ -6,17 +6,17 @@
 * @version 1.0
 */
 
-//imports
-
 public class URLify {
 
 	/**
-	* O(n)
+	* O(n) - brute force
 	*
-	* Summary:  
+	* Summary:  split the string into a character array, iterate through, and every time
+	*			a space is encountered add "%20"
 	*			
-	* @param 
-	* @return 
+	* @param string the string to modify
+	* @param numChars the number of "real" characters in the string
+	* @return stringBuilder the modified string
 	*/
 	public static String replaceSpace(String string, int numChars) {
 		if (numChars < 1) return string; //too small
