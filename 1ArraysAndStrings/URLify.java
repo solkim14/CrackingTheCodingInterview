@@ -11,18 +11,33 @@
 public class URLify {
 
 	/**
-	* //Time Complexity
+	* O(n)
 	*
 	* Summary:  
 	*			
 	* @param 
 	* @return 
 	*/
-	public static void function() {
-		//solution logic
+	public static String replaceSpace(String string, int numChars) {
+		if (numChars < 1) return string; //too small
+		
+		char[] chars = string.toCharArray();
+		String stringBuilder = "";
+		
+		for (int i=0; i<numChars; i++) {
+			if (chars[i] == ' ') {
+				stringBuilder = stringBuilder + "%20";
+			} else {
+				stringBuilder = stringBuilder + chars[i];
+			}
+		}
+		return stringBuilder;
 	}
 
 	public static void main(String[] args) {
-		//function call
+		String string = "Mr John Smith      ";
+		int numChars = 13;
+		
+		System.out.println(replaceSpace(string, numChars));
 	}
 }
